@@ -34,11 +34,11 @@ if [ $# -eq 0 ]; then
 fi
 
 if [ ! -d $DIR ]; then
-  mkdir $DIR
+    mkdir $DIR
 fi
 
 for i in $(curl -s $1 | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{print $1}' | uniq); do
-  if [ ! -e $DIR/$(echo $i | awk -F/ '{print $3}') ]; then
-    wget -qP $DIR $i
-  fi
+    if [ ! -e $DIR/$(echo $i | awk -F/ '{print $3}') ]; then
+        wget -qP $DIR $i
+    fi
 done
