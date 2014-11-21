@@ -7,7 +7,7 @@ Checks if a file has been downloaded already, to save bandwidth and make sure no
 <h3>usage:</h3>
 - -h) shows help
 - -P [arg]) set destination path
-- -d)clear default directory (~/Pictures/4chan/)
+- -d) clear default directory (~/Pictures/4chan/)
 
 <h3>Tips:</h3>
 - Use -P as a way to tag on subject.
