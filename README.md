@@ -12,3 +12,4 @@ Checks if a file has been downloaded already, to save bandwidth and make sure no
 <h3>Tips:</h3>
 - Use -P as a way to tag on subject.
 - Change the default download directory by editing the main script.
+- Put the script in your $PATH and remove the .sh to run it like any other program.
