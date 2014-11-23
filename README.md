@@ -12,3 +12,10 @@ Checks if a file has been downloaded already, to save bandwidth and make sure no
 <h3>Tips:</h3>
 - Use -P as a way to tag on subject.
 - Change the default download directory by editing the main script.
+
+<h4>Dependencies</h4>
+- awk
+- curl
+- sed
+- uniq
+- wget
