@@ -12,6 +12,8 @@ Checks if a file has been downloaded already, to save bandwidth and make sure no
 <h3>Tips:</h3>
 - Use -P as a way to tag on subject.
 - Change the default download directory by editing the main script.
+- 4get does not download new images automatically.
+- 4chan might host illegal content, I am not responisble for what is downloaded by this tool.
 
 <h4>Dependencies</h4>
 - awk
