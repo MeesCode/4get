@@ -1,3 +1,12 @@
+dev todo's:
+- create a dotfile system for auto updating.
+- give every path a dotfile for saving links.
+- add option to discard creation of dotfiles.
+- make the -d function work for folders outside of the default directory.
+- add more features in general
+- get a life
+
+
 <h1>4get</h1>
 <h3>A simple yet powerfull 4chan thread downloader</h3>
 
