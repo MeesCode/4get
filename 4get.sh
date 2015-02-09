@@ -1,19 +1,27 @@
 #!/bin/bash
 
-DIR=~/Pictures/4chan/$(echo $1 | awk -F/ '{ print $4"-"$6 }' | awk -F# '{ print $1 }')
+#Default directory
+DEFDIR=~Pictures/4chan
 
-while getopts dP:h OPT; do
+DIR=$DEFDIR/$(echo $1 | awk -F/ '{ print $4"-"$6 }' | awk -F# '{ print $1 }')
+
+while getopts dP:ah OPT; do
     case "$OPT" in
         h)
             echo "Usage: 4get [-dh] [-P <path>] <thread link>"
-            echo "default path: ~/Pictures/4chan/"
+            echo "default path: $DEFDIR/"
             echo "-d)        empty default path"
+            echo "-a)        add to .update file"
             echo "-h)        display this help"
             echo "-P <arg>)  enter required path"
             exit 0
             ;;
         d)
-            rm -rf ~/Pictures/4chan/*
+            rm -rf $DEFDIR/*
+            exit 0
+            ;;
+        a)
+            rm -rf $DEFDIR/4chan/*
             exit 0
             ;;
         P)
