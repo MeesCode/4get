@@ -26,6 +26,9 @@ while getopts dP:a:uh OPT; do
             DIR=$OPTARG
             ;;
         a)
+            if [ ! -d $DEFDIR ]; then
+    	        mkdir $DEFDIR
+	    fi
             if [ ! -e $DEFDIR/.update ]; then
                 touch $DEFDIR/.update
             fi
@@ -51,10 +54,6 @@ while getopts dP:a:uh OPT; do
 done
 
 shift $((OPTIND-1))
-
-if [ ! -d $DEFDIR ]; then
-    mkdir $DEFDIR
-fi
 
 for i in $(curl -s $URL | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq); do
     if [ ! -e $DIR/$(echo $i | awk -F/ '{print $3}') ]; then
