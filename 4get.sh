@@ -29,17 +29,17 @@ while getopts dP:a:uh OPT; do
             echo $OPTARG\@$DIR >> $DEFDIR/.update
             ;;
         u)
-			for j in $(seq 1 $(wc -l $DEFDIR/.update | awk -F" " '{ print $1 }')); do
-			echo $(awk -F@ '{ print $1 }' $DEFDIR/.update | sed -n "$j"p)
-				for i in $(curl -s $(awk -F@ '{ print $1 }' $DEFDIR/.update | sed -n "$j"p) | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq); do
-					if [ ! -e $(awk -F@ '{ print $2 }' $DEFDIR/.update | sed -n "$j"p)/$(echo $i | awk -F/ '{print $3}') ]; then
-						echo $(echo $i | awk -F/ '{print $3}')
-						wget -qP $(awk -F@ '{ print $2 }' $DEFDIR/.update | sed -n "$j"p) $i
-					fi
-				done
+		for j in $(seq 1 $(wc -l $DEFDIR/.update | awk -F" " '{ print $1 }')); do
+		echo $(awk -F@ '{ print $1 }' $DEFDIR/.update | sed -n "$j"p)
+			for i in $(curl -s $(awk -F@ '{ print $1 }' $DEFDIR/.update | sed -n "$j"p) | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq); do
+				if [ ! -e $(awk -F@ '{ print $2 }' $DEFDIR/.update | sed -n "$j"p)/$(echo $i | awk -F/ '{print $3}') ]; then
+					echo $(echo $i | awk -F/ '{print $3}')
+					wget -qP $(awk -F@ '{ print $2 }' $DEFDIR/.update | sed -n "$j"p) $i
+				fi
 			done
-			exit 0
-			;;
+		done
+		exit 0
+		;;
         \?)
             echo "-h for help"
             exit 1
