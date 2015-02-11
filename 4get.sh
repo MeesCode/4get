@@ -15,7 +15,7 @@ function download {
 URL=$(echo ${@: -1})
 DIR=$DEFDIR/$(echo $URL | awk -F/ '{ print $4"-"$6 }' | awk -F# '{ print $1 }')
 
-while getopts dP:a:uh OPT; do
+while getopts dP:a:uch OPT; do
     case "$OPT" in
         h)
             echo "Usage: 4get [-dh] [-P <path>] <thread link>"
@@ -23,6 +23,7 @@ while getopts dP:a:uh OPT; do
             echo "-d)        empty default path"
             echo "-a <arg>)  add to .update file"
             echo "-u)        update all pages in .update"
+            echo "-c)        clears update file"
             echo "-h)        display this help"
             echo "-P <arg>)  enter required path"
             exit 0
@@ -44,6 +45,9 @@ while getopts dP:a:uh OPT; do
             echo $OPTARG\@$DIR >> $DEFDIR/.update
             ;;
         u)
+			if [ ! -e $DEFDIR/.update ]; then
+                exit 0
+            fi
             UPDATES=$(wc -l $DEFDIR/.update | awk -F" " '{ print $1 }')
 	        for j in $(seq 1 $UPDATES); do
 	            URL=$(awk -F@ '{ print $1 }' $DEFDIR/.update | sed -n "$j"p)
@@ -53,6 +57,13 @@ while getopts dP:a:uh OPT; do
 	        done
 	        exit 0
 	        ;;
+	    c)
+			if [ ! -e $DEFDIR/.update ]; then
+                exit 0
+            fi
+			rm $DEFDIR/.update
+			exit 0
+			;;
         \?)
             echo "-h for help"
             exit 1
