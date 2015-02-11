@@ -1,4 +1,4 @@
-dev todo's:
+todo's:
 - ~~create a dotfile system for auto updating.~~
 - give every path a dotfile for saving links.
 - ~~add option to discard creation of dotfiles.~~
@@ -17,6 +17,9 @@ Checks if a file has been downloaded already, to save bandwidth and make sure no
 - -h) shows help
 - -P [arg]) set destination path
 - -d) clear default directory (~/Pictures/4chan/)
+- -a) add to update list
+- -c) empty update list
+- -u) update everything in update list
 
 <h4>Tips:</h4>
 - Use -P as a way to tag on subject.
@@ -33,3 +36,4 @@ Most if not all will already be installed on your system!
 - sed
 - uniq
 - wget
+- seq
