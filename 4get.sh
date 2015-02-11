@@ -57,13 +57,13 @@ while getopts dP:a:uch OPT; do
 	        done
 	        exit 0
 	        ;;
-	    c)
-			if [ ! -e $DEFDIR/.update ]; then
+	c)
+	    if [ ! -e $DEFDIR/.update ]; then
                 exit 0
             fi
-			rm $DEFDIR/.update
-			exit 0
-			;;
+	    rm $DEFDIR/.update
+	    exit 0
+	    ;;
         \?)
             echo "-h for help"
             exit 1
