@@ -24,12 +24,12 @@ while getopts dP:a:uchl OPT; do
             echo "default path: $DEFDIR/"
             echo ""
             echo "-d)        empty default path"
-            echo "-a <url>)  add to .update file"
+            echo "-a [url])  add to .update file"
             echo "-u)        update all pages in your update list"
             echo "-l)        list update list"
             echo "-c)        clears update list"
             echo "-h)        display this help"
-            echo "-P <dir>)  enter required path"
+            echo "-P [dir])  enter required path"
             exit 0
             ;;
         d)
