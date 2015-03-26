@@ -18,14 +18,17 @@ DIR=$DEFDIR/$(echo $URL | awk -F/ '{ print $4"-"$6 }' | awk -F# '{ print $1 }')
 while getopts dP:a:uch OPT; do
     case "$OPT" in
         h)
-            echo "Usage: 4get [-dh] [-P <path>] <thread link>"
+            echo "4get user manual"
+            echo ""
+            echo "Usage: 4get [option] [thread url]"
             echo "default path: $DEFDIR/"
+            echo ""
             echo "-d)        empty default path"
-            echo "-a <arg>)  add to .update file"
-            echo "-u)        update all pages in .update"
+            echo "-a <url>)  add to .update file"
+            echo "-u)        update all pages in your updatelist"
             echo "-c)        clears update file"
             echo "-h)        display this help"
-            echo "-P <arg>)  enter required path"
+            echo "-P <dir>)  enter required path"
             exit 0
             ;;
         d)
@@ -36,32 +39,27 @@ while getopts dP:a:uch OPT; do
             DIR=$OPTARG
             ;;
         a)
-            if [ ! -d $DEFDIR ]; then
-    	        mkdir $DEFDIR
-	        fi
-            if [ ! -e $DEFDIR/.update ]; then
-                touch $DEFDIR/.update
-            fi
-            echo $OPTARG\@$DIR >> $DEFDIR/.update
+            touch ~/.4get
+            echo $OPTARG\@$DIR >> ~/.4get
             ;;
         u)
-			if [ ! -e $DEFDIR/.update ]; then
+	    if [ ! -e ~/.4get ]; then
                 exit 0
             fi
-            UPDATES=$(wc -l $DEFDIR/.update | awk -F" " '{ print $1 }')
-	        for j in $(seq 1 $UPDATES); do
-	            URL=$(awk -F@ '{ print $1 }' $DEFDIR/.update | sed -n "$j"p)
-	            DIR=$(awk -F@ '{ print $2 }' $DEFDIR/.update | sed -n "$j"p)
-	            echo $URL
-				download $URL $DIR
-	        done
-	        exit 0
-	        ;;
+            UPDATES=$(wc -l ~/.4get | awk -F" " '{ print $1 }')
+	    for j in $(seq 1 $UPDATES); do
+	        URL=$(awk -F@ '{ print $1 }' ~/.4get | sed -n "$j"p)
+                DIR=$(awk -F@ '{ print $2 }' ~/.4get | sed -n "$j"p)
+                echo $URL
+		download $URL $DIR
+	    done
+	    exit 0
+	    ;;
 	c)
-	    if [ ! -e $DEFDIR/.update ]; then
+	    if [ ! -e ~/.4get ]; then
                 exit 0
             fi
-	    rm $DEFDIR/.update
+	    rm ~/.4get
 	    exit 0
 	    ;;
         \?)
