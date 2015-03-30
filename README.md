@@ -1,3 +1,9 @@
+Special GUI readme :^)
+here i will be experimenting with a gtk interface for 4get
+Don't worry, the CLI will still be usable
+
+
+
 todo's:
 - ~~create a dotfile system for auto updating.~~
 - ~~give every path a dotfile for saving links.~~ deprecated by recent update
