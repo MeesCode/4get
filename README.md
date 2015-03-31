@@ -48,10 +48,14 @@ Is able to keep a list of downloads, so you can update automagically.
 <h4>Tips:</h4>
 - Use -P as a way to tag on subject.
 - run the INSTALL.sh script to make it work like any other command.
-- Change the default download directory by editing the main script.
 - 4get does not download new images automatically unless you added the threads to your update list.
 - It updates only when you tell it to do so.
 - 4chan might host illegal content, I am not responisble for what is downloaded by this tool.
+
+<h4>User input<h4>
+- Change the default download directory by editing the 4get.sh script.
+- Change the installation directory by editing the 4ui.sh script.
+To apply changes run INSTALL.sh as root.
 
 <h4>Dependencies:</h4>
 Most if not all will already be installed on your system!
