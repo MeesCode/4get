@@ -40,10 +40,13 @@ done
 
 if [ $DOWN = "TRUE" ]; then
 	URL=$(zenity --entry --width 500 --title "4get" --text "URL")
+    if [ $? -eq 1 ]; then
+        	exit 1
+    fi
 	if [ $DIR = "TRUE" ]; then
 		DIR="-P $(zenity --file-selection --directory --title="Select a Folder")/"
         if [ $? -eq 1 ]; then
-        	DIR=""
+        	exit 1
         fi
 	fi
 fi

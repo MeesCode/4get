@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Default directory
+#Default directory (change if you will)
 DEFDIR=~/Pictures/4chan
 
 function download {
@@ -15,7 +15,7 @@ function download {
 URL=$(echo ${@: -1})
 DIR=$DEFDIR/$(echo $URL | awk -F/ '{ print $4"-"$6 }' | awk -F# '{ print $1 }')
 
-while getopts dP:a:uchl OPT; do
+while getopts dP:a:uchlg OPT; do
     case "$OPT" in
         h)
             echo "4get user manual"
@@ -30,6 +30,7 @@ while getopts dP:a:uchl OPT; do
             echo "-c)        clears update list"
             echo "-h)        display this help"
             echo "-P [dir])  enter required path"
+            ech0 "-g)        start GUI interface"
             exit 0
             ;;
         d)
@@ -64,17 +65,21 @@ while getopts dP:a:uchl OPT; do
 	    exit 0
 	    ;;
 	l)
-            if [ ! -e ~/.4get ]; then
-                echo "no updates listed"
-		exit 0
-            fi
-            awk -F@ '{ print $1 " in " $2 }' ~/.4get
-            exit 0
-            ;;
-        \?)
-            echo "-h for help"
-            exit 1
-            ;;
+         if [ ! -e ~/.4get ]; then
+            echo "no updates listed"
+		    exit 0
+         fi
+         awk -F@ '{ print $1 " in " $2 }' ~/.4get
+         exit 0
+         ;;
+    g)
+         4gui
+         exit 0
+         ;;
+    \?)
+          echo "-h for help"
+          exit 1
+          ;;
     esac
 done
 

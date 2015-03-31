@@ -1,8 +1,24 @@
-Special GUI readme :^)
-here i will be experimenting with a gtk interface for 4get
-Don't worry, the CLI will still be usable
+Special GUI readme :^)<br />
+here i will be experimenting with a gtk interface for 4get<br />
+Don't worry, the CLI will still be usable<br />
 
+<h1>installation instructions</h1>
+run the install script with root privileges<br />
+```
+# sudo bash INSTALL.sh
+```
 
+to start 4get in the terminal:
+```
+# 4get
+```
+
+to start the gui:
+```
+# 4get -g
+or
+# 4gui
+```
 
 todo's:
 - ~~create a dotfile system for auto updating.~~
@@ -31,7 +47,7 @@ Is able to keep a list of downloads, so you can update automagically.
 
 <h4>Tips:</h4>
 - Use -P as a way to tag on subject.
-- Create a syslink in your $PATH and rename it to "4get", this way it works like any other command!
+- run the INSTALL.sh script to make it work like any other command.
 - Change the default download directory by editing the main script.
 - 4get does not download new images automatically unless you added the threads to your update list.
 - It updates only when you tell it to do so.
@@ -46,3 +62,6 @@ Most if not all will already be installed on your system!
 - uniq
 - wget
 - seq
+
+to run te GUI interface (4gui):
+- zenity
