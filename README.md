@@ -52,9 +52,10 @@ Is able to keep a list of downloads, so you can update automagically.
 - It updates only when you tell it to do so.
 - 4chan might host illegal content, I am not responisble for what is downloaded by this tool.
 
-<h4>User input<h4>
+<h4>User input</h4>
 - Change the default download directory by editing the 4get.sh script.
 - Change the installation directory by editing the 4ui.sh script.
+
 To apply changes run INSTALL.sh as root.
 
 <h4>Dependencies:</h4>
