@@ -46,7 +46,7 @@ while getopts dP:a:uchlg OPT; do
             ;;
         a)
             touch ~/.4get
-            echo $OPTARG:$DIR >> ~/.4get
+            echo $OPTARG@$DIR >> ~/.4get
             ;;
         u)
 	        if [ ! -e ~/.4get ]; then
@@ -54,9 +54,10 @@ while getopts dP:a:uchlg OPT; do
             fi
             UPDATES=$(wc -l ~/.4get | awk -F" " '{ print $1 }')
 	        for j in $(seq 1 $UPDATES); do
-	            URL=$(awk -F: '{ print $1 }' ~/.4get | sed -n "$j"p)
-                DIR=$(awk -F: '{ print $2 }' ~/.4get | sed -n "$j"p)
+	            URL=$(awk -F@ '{ print $1 }' ~/.4get | sed -n "$j"p)
+                DIR=$(awk -F@ '{ print $2 }' ~/.4get | sed -n "$j"p)
                 echo $URL
+                NUM=0
 		        download $URL $DIR
 	        done
 	        exit 0
@@ -73,7 +74,7 @@ while getopts dP:a:uchlg OPT; do
                 echo "no updates listed"
 		        exit 0
             fi
-            awk -F:'{ print $1 " in " $2 }' ~/.4get
+            awk -F@ '{ print $1 " in " $2 }' ~/.4get
             exit 0
             ;;
         g)

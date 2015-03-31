@@ -13,13 +13,13 @@ ANS=$(zenity  --list  --title "4get" --text "options" --width 500 --height 500 -
 			FALSE 			"Empty default directory" \
 			FALSE			"Clear update list" \
 			FALSE			"Show update list" \
---separator=":")
+--separator="@")
 
-COUNT=$(echo $ANS | sed s/:/\\n/g | wc -l)
+COUNT=$(echo $ANS | sed s/@/\\n/g | wc -l)
 
 for i in $(seq $COUNT)
 do
-	TRY=$(echo $ANS | awk -F: -v var="$i" '{ print $var }')
+	TRY=$(echo $ANS | awk -F@ -v var="$i" '{ print $var }')
     if [ "$TRY" = "Download pictures" ]; then
     	DOWN="TRUE"
     fi
@@ -27,7 +27,7 @@ do
     	UPDATE="-a"
     fi
     if [ "$TRY" = "Update all pages in your update list" ]; then
-    	4get -u
+    	(4get -u) | zenity --progress --title "4get" 
     fi
     if [ "$TRY" = "Change directory" ]; then
     	DIR="TRUE"
@@ -56,5 +56,5 @@ if [ $DOWN = "TRUE" ]; then
 	fi
 fi
 
-4get $DIR $UPDATE $URL
+(4get $DIR $UPDATE $URL) | zenity --progress --auto-close --title "4get" 
 	
