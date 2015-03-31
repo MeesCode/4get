@@ -30,7 +30,7 @@ while getopts dP:a:uchlg OPT; do
             echo "-c)        clears update list"
             echo "-h)        display this help"
             echo "-P [dir])  enter required path"
-            ech0 "-g)        start GUI interface"
+            echo "-g)        start GUI interface"
             exit 0
             ;;
         d)
