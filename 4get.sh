@@ -26,7 +26,7 @@ while getopts dP:a:uchl OPT; do
             echo "-d)        empty default path"
             echo "-a [url])  add to .update file"
             echo "-u)        update all pages in your update list"
-            echo "-l)        list update list"
+            echo "-l)        show update list"
             echo "-c)        clears update list"
             echo "-h)        display this help"
             echo "-P [dir])  enter required path"
