@@ -8,6 +8,7 @@ ANS=$(zenity  --list  --title "4get" --text "options" --width 500 --height 500 -
 --column 	"Pick" --column "options" \
 			TRUE 			"Download pictures" \
 			TRUE 			"Add to update list" \
+            TRUE			"Update all pages in your update list" \
 			FALSE 			"Change directory" \
 			FALSE 			"Empty default directory" \
 			FALSE			"Clear update list" \
@@ -24,6 +25,9 @@ do
     fi
     if [ "$TRY" = "Add to update list" ]; then
     	UPDATE="-a"
+    fi
+    if [ "$TRY" = "Update all pages in your update list" ]; then
+    	4get -u
     fi
     if [ "$TRY" = "Change directory" ]; then
     	DIR="TRUE"
