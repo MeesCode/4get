@@ -1,7 +1,3 @@
-Special GUI readme :^)<br />
-here i will be experimenting with a gtk interface for 4get<br />
-Don't worry, the CLI will still be usable<br />
-
 <h1>installation instructions</h1>
 run the install script with root privileges<br />
 ```
