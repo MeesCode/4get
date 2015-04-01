@@ -1,8 +1,8 @@
 #!/bin/bash
 
-UPDATE=""
-DIR=""
-DOWN=""
+UPDATE=" "
+DIR=" "
+DOWN="FALSE"
 
 ANS=$(zenity  --list  --title "4get" --text "options" --width 500 --height 500 --checklist \
 --column 	"Pick" --column "options" \
@@ -27,7 +27,7 @@ do
     	UPDATE="-a"
     fi
     if [ "$TRY" = "Update all pages in your update list" ]; then
-    	(4get -u) | zenity --progress --title "4get" 
+    	(4get -u) | zenity --progress --no-cancel --width 500 --title "4get" --text "downloading..."
     fi
     if [ "$TRY" = "Change directory" ]; then
     	DIR="TRUE"
@@ -54,7 +54,6 @@ if [ $DOWN = "TRUE" ]; then
         	exit 1
         fi
 	fi
+    (4get $DIR $UPDATE $URL) | zenity --progress --auto-close --width 500 --title "4get" --text "downloading..."
 fi
-
-(4get $DIR $UPDATE $URL) | zenity --progress --auto-close --title "4get" 
 	
