@@ -40,6 +40,7 @@ Is able to keep a list of downloads, so you can update automagically.
 - -c)        clears update list
 - -h)        display this help
 - -P [dir])  enter required path
+- -g)        start GUI (GTK)
 
 <h4>Tips:</h4>
 - Use -P as a way to tag on subject.
