@@ -54,19 +54,19 @@ Is able to keep a list of downloads, so you can update automagically.
 
 <h4>User input</h4>
 - Change the default download directory by editing the 4get.sh script.
-- Change the installation directory by editing the 4ui.sh script.
+- Change the installation directory by editing the INSTALL.sh script.
 
 To apply changes run INSTALL.sh as root.
 
 <h4>Dependencies:</h4>
 Most if not all will already be installed on your system!
 - awk
-- curl
+- expr
 - grep
 - sed
+- seq
 - uniq
 - wget
-- seq
 
 to run te GUI interface (4gui):
 - zenity
