@@ -4,8 +4,8 @@
 DEFDIR=~/Pictures/4chan
 
 function download {
-    COUNT=$(curl -s $1 | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq | wc -l)
-    for i in $(curl -s $1 | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq); do
+    COUNT=$(wget -q -O - $1 | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq | wc -l)
+    for i in $(wget -q -O - $1 | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq); do
         NUM=$(expr $NUM + 1)
         PER=$(echo $COUNT $NUM | awk '{ div = $2 * 100; per = div / $1; printf"%0.0f\n", per }')
         if [ ! -e $2/$(echo $i | awk -F/ '{print $3}') ]; then
