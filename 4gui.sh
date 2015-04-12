@@ -8,7 +8,7 @@ ANS=$(zenity  --list  --title "4get" --text "options" --width 500 --height 500 -
 --column 	"Pick" --column "options" \
 			TRUE 			"Download pictures" \
 			TRUE 			"Add to update list" \
-            TRUE			"Update all pages in your update list" \
+            		TRUE			"Update all pages in your update list" \
 			FALSE 			"Change directory" \
 			FALSE 			"Empty default directory" \
 			FALSE			"Clear update list" \
