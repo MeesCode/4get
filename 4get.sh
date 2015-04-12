@@ -6,6 +6,7 @@ DEFDIR=~/Pictures/4chan
 function download {
     IMAGES=$(wget -q -O - $1 | sed s/href/\\n/g | grep -o "i.4cdn.org.*\"" | awk -F\" '{ print $1 }' | uniq)
     COUNT=$(echo ${IMAGES[*]} | wc -w)
+    echo "Downloading $COUNT images total..."
     for i in ${IMAGES}; do
         NUM=$(expr $NUM + 1)
         PER=$(echo $COUNT $NUM | awk '{ div = $2 * 100; per = div / $1; printf"%0.0f\n", per }')
