@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Installation directory (change if you will)
-INSTALLDIR="/user/local/bin"
+INSTALLDIR="/usr/local/bin"
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
