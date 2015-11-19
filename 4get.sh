@@ -62,8 +62,8 @@ while getopts dP:a:uchlg OPT; do
                 NUM=0
 		        download $URL $DIR
 	        done
-	        exit 0
-	        ;;
+	    exit 0
+	    ;;
 	c)
 	    if [ ! -e ~/.4get ]; then
                 exit 0
