@@ -51,7 +51,7 @@ while getopts dP:a:uchlg OPT; do
             echo $OPTARG@$DIR >> ~/.4get
             ;;
         u)
-	        if [ ! -e ~/.4get ]; then
+	    if [ ! -e ~/.4get ]; then
                 exit 0
             fi
             UPDATES=$(wc -l ~/.4get | awk -F" " '{ print $1 }')
@@ -64,17 +64,17 @@ while getopts dP:a:uchlg OPT; do
 	        done
 	        exit 0
 	        ;;
-	    c)
-	        if [ ! -e ~/.4get ]; then
+	c)
+	    if [ ! -e ~/.4get ]; then
                 exit 0
             fi
 	        rm ~/.4get
 	        exit 0
 	        ;;
-	    l)
+	l)
             if [ ! -e ~/.4get ]; then
                 echo "no updates listed"
-		        exit 0
+		exit 0
             fi
             awk -F@ '{ print $1 " in " $2 }' ~/.4get
             exit 0
